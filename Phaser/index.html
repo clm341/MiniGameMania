@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Game Mania - Phaser Games Launcher</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: #fff;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 2rem 2rem;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 255, 255, 0.3);
+      }
+      to {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.6);
+      }
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-top: 0.5rem;
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .game-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 1rem;
+      padding: 2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .game-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s;
+    }
+
+    .game-card:hover::before {
+      transform: translateX(100%);
+    }
+
+    .game-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(255, 255, 255, 0.5);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .game-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      display: block;
+      text-align: center;
+    }
+
+    .game-title {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+
+    .game-description {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .play-button {
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      color: white;
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      border-radius: 2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+
+    .play-button:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      opacity: 0.8;
+      font-size: 0.9rem;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 1rem;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .status.ready {
+      background: rgba(76, 175, 80, 0.3);
+      border: 1px solid rgba(76, 175, 80, 0.6);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎮 Mini Game Mania 🎮</h1>
+    <p class="subtitle">Choose your adventure!</p>
+  </header>
+
+  <main>
+    <div class="games-grid">
+      <div class="game-card" onclick="launchGame('zelda')">
+        <span class="status ready">Ready to Play</span>
+        <div class="game-icon">🗡️</div>
+        <h2 class="game-title">Zelda: A Link to the Past</h2>
+        <p class="game-description">
+          Experience a classic adventure in this Phaser 3 recreation of the legendary Zelda game.
+          Explore dungeons, fight monsters, and save the kingdom!
+        </p>
+        <button class="play-button">Play Now</button>
+      </div>
+
+      <!-- Placeholder for future games -->
+      <div class="game-card" style="opacity: 0.5; cursor: not-allowed;">
+        <span class="status" style="background: rgba(158, 158, 158, 0.3); border: 1px solid rgba(158, 158, 158, 0.6);">Coming Soon</span>
+        <div class="game-icon">❓</div>
+        <h2 class="game-title">More Games Coming!</h2>
+        <p class="game-description">
+          Stay tuned for more exciting Phaser games!
+        </p>
+        <button class="play-button" disabled>Coming Soon</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Built with Phaser 3 | Mini Game Mania &copy; 2026</p>
+  </footer>
+
+  <script>
+    function launchGame(gameName) {
+      // Navigate to the game's page
+      if (gameName === 'zelda') {
+        window.location.href = '/Zelda/phaser/';
+      }
+    }
+  </script>
+</body>
+</html>
