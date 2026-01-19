@@ -167,17 +167,6 @@
 
   <main>
     <div class="games-grid">
-      <div class="game-card" onclick="launchGame('zelda')">
-        <span class="status ready">Ready to Play</span>
-        <div class="game-icon">🗡️</div>
-        <h2 class="game-title">Zelda: A Link to the Past</h2>
-        <p class="game-description">
-          Experience a classic adventure in this Phaser 3 recreation of the legendary Zelda game.
-          Explore dungeons, fight monsters, and save the kingdom!
-        </p>
-        <button class="play-button">Play Now</button>
-      </div>
-
       <div class="game-card" onclick="launchGame('mariokart')">
         <span class="status ready">Ready to Play</span>
         <div class="game-icon">🏎️</div>
@@ -209,9 +198,7 @@
   <script>
     function launchGame(gameName) {
       // Navigate to the game's page
-      if (gameName === 'zelda') {
-        window.location.href = '/Zelda/phaser/';
-      } else if (gameName === 'mariokart') {
+      if (gameName === 'mariokart') {
         window.location.href = '/MarioKart/mariokart/';
       }
     }

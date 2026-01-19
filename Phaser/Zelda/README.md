@@ -1,2 +1,0 @@
-# Zelda
-Zelda recreation attempt
