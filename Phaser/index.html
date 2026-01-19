@@ -178,6 +178,17 @@
         <button class="play-button">Play Now</button>
       </div>
 
+      <div class="game-card" onclick="launchGame('mariokart')">
+        <span class="status ready">Ready to Play</span>
+        <div class="game-icon">🏎️</div>
+        <h2 class="game-title">Mario Kart Racing</h2>
+        <p class="game-description">
+          Race against AI opponents in this 3D kart racing game!
+          Drift around corners, collect items, and cross the finish line first!
+        </p>
+        <button class="play-button">Play Now</button>
+      </div>
+
       <!-- Placeholder for future games -->
       <div class="game-card" style="opacity: 0.5; cursor: not-allowed;">
         <span class="status" style="background: rgba(158, 158, 158, 0.3); border: 1px solid rgba(158, 158, 158, 0.6);">Coming Soon</span>
@@ -200,6 +211,8 @@
       // Navigate to the game's page
       if (gameName === 'zelda') {
         window.location.href = '/Zelda/phaser/';
+      } else if (gameName === 'mariokart') {
+        window.location.href = '/MarioKart/mariokart/';
       }
     }
   </script>

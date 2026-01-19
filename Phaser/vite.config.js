@@ -8,6 +8,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         zelda: resolve(__dirname, 'Zelda/phaser/index.html'),
+        mariokart: resolve(__dirname, 'MarioKart/mariokart/index.html'),
       },
     },
   },
